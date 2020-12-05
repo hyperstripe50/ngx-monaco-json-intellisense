@@ -1,4 +1,4 @@
-import { Component, Input, OnChanges, SimpleChanges } from '@angular/core';
+import { Component, Input, OnChanges, SimpleChanges, ViewChild } from '@angular/core';
 import { NgxEditorModel } from 'ngx-monaco-editor';
 
 @Component({
@@ -7,8 +7,8 @@ import { NgxEditorModel } from 'ngx-monaco-editor';
   styleUrls: ['./monaco-json-autocomplete.component.css']
 })
 export class MonacoJsonAutocompleteComponent implements OnChanges {
+  @ViewChild("intellisense") editor: any;
   @Input() schema: any;
-  editor: any;
   options = {
     theme: 'vs-light'
   }
@@ -34,7 +34,7 @@ export class MonacoJsonAutocompleteComponent implements OnChanges {
 
   setDiagnosticsOptions(schema) {
     if (typeof schema !== "string") {
-      console.log("loading from source")
+      // load from source
       monaco.languages.json.jsonDefaults.setDiagnosticsOptions({
         enableSchemaRequest: true,
         validate: true,
@@ -47,7 +47,7 @@ export class MonacoJsonAutocompleteComponent implements OnChanges {
         ]
       })
     } else {
-      console.log("loading from server")
+      // load from server e.g. http://localhost:8000/schema.json
       monaco.languages.json.jsonDefaults.setDiagnosticsOptions({
         enableSchemaRequest: true,
         validate: true,
@@ -59,5 +59,9 @@ export class MonacoJsonAutocompleteComponent implements OnChanges {
         ]
       })
     }
+  }
+
+  get value(): string {
+    return this.editor._value;
   }
 }
