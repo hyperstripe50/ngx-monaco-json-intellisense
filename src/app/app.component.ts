@@ -7,4 +7,9 @@ import { Component } from '@angular/core';
 })
 export class AppComponent {
   title = 'ngx-monaco-json-autocomplete';
+  schema: any;
+
+  constructor() {
+    this.schema = 'http://localhost:8000/schema.json';
+  }
 }

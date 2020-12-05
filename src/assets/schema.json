@@ -1,0 +1,37 @@
+{
+    "title": "Example JSON Schema",
+    "definitions": {
+        "user": {
+            "description": "A user",
+            "type": ["object"],
+            "required": [
+                "firstName",
+                "lastName"
+            ],
+            "properties": {
+                "location": {
+                    "type": "string",
+                    "enum": [
+                        "USA",
+                        "CANADA"
+                    ]
+                },
+                "firstName": {
+                    "type": "string"
+                },
+                "lastName": {
+                    "type": "string"
+                }
+            }
+        }
+    },
+    "properties": {
+      "userArray": {
+        "description": "Show how to create an array.",
+        "type": "array",
+        "items": {
+            "$ref": "#/definitions/user"
+        }
+      }
+    }
+  }

@@ -1,0 +1,7 @@
+{
+    "properties": {
+      "newname": {
+        "type": "string"
+      }
+    }
+  }

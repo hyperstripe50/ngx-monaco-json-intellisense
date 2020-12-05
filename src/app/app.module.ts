@@ -2,13 +2,19 @@ import { BrowserModule } from '@angular/platform-browser';
 import { NgModule } from '@angular/core';
 
 import { AppComponent } from './app.component';
+import { MonacoEditorModule } from 'ngx-monaco-editor';
+import { HttpClientModule } from '@angular/common/http';
+import { MonacoJsonAutocompleteComponent } from './monaco-json-autocomplete/monaco-json-autocomplete.component';
 
 @NgModule({
   declarations: [
-    AppComponent
+    AppComponent,
+    MonacoJsonAutocompleteComponent
   ],
   imports: [
-    BrowserModule
+    BrowserModule,
+    HttpClientModule,
+    MonacoEditorModule.forRoot()
   ],
   providers: [],
   bootstrap: [AppComponent]
