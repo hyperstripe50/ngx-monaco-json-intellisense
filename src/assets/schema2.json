@@ -1,7 +1,7 @@
 {
     "properties": {
-      "newname": {
+      "apiVersion": {
         "type": "string"
       }
     }
-  }
+}

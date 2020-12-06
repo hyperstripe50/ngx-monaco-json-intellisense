@@ -9,7 +9,17 @@ export class AppComponent {
   title = 'ngx-monaco-json-autocomplete';
   schema: any;
 
+  schemaServer = 'http://localhost:8000/schema.json';
+  schemaObject = 
+  {
+    properties: {
+      apiVersion: {
+        type: "string"
+      }
+    }
+  }
+
   constructor() {
-    this.schema = 'http://localhost:8000/schema.json';
+    this.schema = this.schemaServer;
   }
 }
