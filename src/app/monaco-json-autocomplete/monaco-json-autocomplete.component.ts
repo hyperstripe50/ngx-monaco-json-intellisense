@@ -1,4 +1,4 @@
-import { Component, Input, OnChanges, SimpleChanges, ViewChild } from '@angular/core';
+import { Component, Input, OnChanges, SimpleChanges } from '@angular/core';
 import { NgxEditorModel } from 'ngx-monaco-editor';
 
 @Component({
@@ -20,8 +20,6 @@ export class MonacoJsonAutocompleteComponent implements OnChanges {
     language: 'json',
     uri: this.modelUri
   }
-
-  monacoLoaded: boolean = false;
 
   ngOnChanges(changes: SimpleChanges) {
     for (const propName in changes) {
